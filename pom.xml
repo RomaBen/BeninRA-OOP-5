@@ -8,8 +8,6 @@
     <artifactId>BeninRA-OOP-5</artifactId>
     <version>1.0</version>
 
-    <name>BeninRA-OOP-5</name>
-    <url>http://github.com/codecov/BeninRA-OOP-5</url>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>

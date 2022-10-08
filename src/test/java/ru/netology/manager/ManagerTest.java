@@ -13,18 +13,28 @@ class ManagerTest {
 
     Product product = new Product(1, "Dummy", 115);
     Product product1 = new Product(4, "Dummy");
-    Product product2 = new Product(7, "Dummy");
+    Product product2 = new Product(7, 449.99);
     Product product3 = new Product(10);
 
     Book book = new Book("Dummy", 2);
-    Book book1 = new Book(5);
-    Book book2 = new Book(8);
-    Book book3 = new Book(11);
+    Book book1 = new Book(5, "EducationBook", 265.50,
+            "JeanPaul");
+    Book book2 = new Book(8, "Recipes", "ChrisMeatson");
+    Book book3 = new Book(11, "AndrewSamovipilov");
+    Book book4 = new Book("EvgeniyHromoy");
+    Book book5 = new Book(78, "HowToKillABoring", 500.00);
+    Book book6 = new Book(1987, 499.99);
+    Book book7 = new Book(129873);
 
     Smartphone smartphone = new Smartphone(3, "GalaxyI", "Samsung");
-    Smartphone smartphone1 = new Smartphone(6);
-    Smartphone smartphone2 = new Smartphone(9);
+    Smartphone smartphone1 = new Smartphone(6, 48499.99);
+    Smartphone smartphone2 = new Smartphone(9, "Honor1337", 54499.99);
     Smartphone smartphone3 = new Smartphone("Dummy",12);
+    Smartphone smartphone4 = new Smartphone(18567, "Apple");
+    Smartphone smartphone5 = new Smartphone(45679, "MtaePro3000",
+                                96999.99, "Xiaozu");
+    Smartphone smartphone6 = new Smartphone(125);
+
 
     @BeforeEach
     public void managerPreparations() {
@@ -36,10 +46,17 @@ class ManagerTest {
         manager.add(book1);
         manager.add(book2);
         manager.add(book3);
+        manager.add(book4);
+        manager.add(book5);
         manager.add(smartphone);
         manager.add(smartphone1);
         manager.add(smartphone2);
         manager.add(smartphone3);
+        manager.add(smartphone4);
+        manager.add(smartphone5);
+        manager.add(book6);
+        manager.add(book7);
+        manager.add(smartphone6);
     }
 
     @Test
@@ -76,7 +93,6 @@ class ManagerTest {
         Product[] expected = new Product[] {
                 product,
                 product1,
-                product2,
                 book,
                 smartphone3
         };
@@ -88,12 +104,15 @@ class ManagerTest {
     @Test
     public void shouldSearchByProductNameForAllPlaceholders() {
         Product[] expected = new Product[] {
+                product2,
                 product3,
-                book1,
-                book2,
                 book3,
+                book4,
                 smartphone1,
-                smartphone2
+                smartphone4,
+                book6,
+                book7,
+                smartphone6
         };
         Product[] actual = manager.searchByText("Placeholder");
 
